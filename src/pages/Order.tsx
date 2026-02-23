@@ -1,10 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import FloatingContact from "@/components/FloatingContact";
+import { variations } from "@/pages/Index";
 
 const Order = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const sizeParam = searchParams.get("size") || "500g";
+
+  const [selectedVariation, setSelectedVariation] = useState(
+    () => variations.find((v) => v.id === sizeParam) || variations[1]
+  );
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -12,11 +20,9 @@ const Order = () => {
     payment: "cod",
   });
 
-  const price = 399000;
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/xac-nhan", { state: { order: form } });
+    navigate("/xac-nhan", { state: { order: { ...form, variation: selectedVariation.id } } });
   };
 
   return (
@@ -26,15 +32,36 @@ const Order = () => {
         <h1 className="text-2xl font-bold text-foreground mb-6">Đặt hàng</h1>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Product summary */}
-          <div className="bg-card border rounded-xl p-4 flex items-center justify-between">
-            <div>
-              <p className="font-semibold text-foreground">Cashew Essence</p>
-              <p className="text-sm text-muted-foreground">x1</p>
+          {/* Product summary with variation selector */}
+          <div className="bg-card border rounded-xl p-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-semibold text-foreground">Cashew Essence</p>
+                <p className="text-sm text-muted-foreground">x1</p>
+              </div>
+              <p className="text-lg font-bold text-primary">
+                {selectedVariation.price.toLocaleString("vi-VN")}₫
+              </p>
             </div>
-            <p className="text-lg font-bold text-primary">
-              {price.toLocaleString("vi-VN")}₫
-            </p>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground mb-2">Trọng lượng:</p>
+              <div className="flex gap-2">
+                {variations.map((v) => (
+                  <button
+                    key={v.id}
+                    type="button"
+                    onClick={() => setSelectedVariation(v)}
+                    className={`px-4 py-2 rounded-lg border text-sm font-semibold transition-all ${
+                      selectedVariation.id === v.id
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {v.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Name */}
@@ -122,7 +149,9 @@ const Order = () => {
           {/* Total */}
           <div className="border-t pt-4 flex items-center justify-between">
             <span className="text-lg font-semibold text-foreground">Tổng cộng:</span>
-            <span className="text-2xl font-bold text-primary">{price.toLocaleString("vi-VN")}₫</span>
+            <span className="text-2xl font-bold text-primary">
+              {selectedVariation.price.toLocaleString("vi-VN")}₫
+            </span>
           </div>
 
           <button
