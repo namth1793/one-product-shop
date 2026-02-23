@@ -13,7 +13,7 @@ const Confirmation = () => {
             Đặt hàng thành công!
           </h1>
           <p className="text-muted-foreground mb-6">
-            Cảm ơn bạn đã tin tưởng GlowSerum. Chúng tôi sẽ liên hệ xác nhận đơn hàng trong thời gian sớm nhất.
+            Cảm ơn bạn đã tin tưởng Cashew Essence. Chúng tôi sẽ liên hệ xác nhận đơn hàng trong thời gian sớm nhất.
           </p>
 
           <div className="bg-secondary rounded-xl p-4 text-left space-y-2 mb-6">
