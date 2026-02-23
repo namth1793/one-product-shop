@@ -5,18 +5,18 @@ import Header from "@/components/Header";
 import FloatingContact from "@/components/FloatingContact";
 
 const benefits = [
-  "Dưỡng ẩm sâu, phục hồi da tổn thương sau 7 ngày",
-  "Chiết xuất tự nhiên 100%, an toàn cho mọi loại da",
-  "Thẩm thấu nhanh, không gây nhờn rít",
-  "Làm đều màu da, mờ thâm nám hiệu quả",
-  "Đã được kiểm nghiệm lâm sàng bởi chuyên gia",
+  "100% từ hạt điều tự nhiên, không chất bảo quản",
+  "Giàu protein thực vật, tốt cho sức khỏe tim mạch",
+  "Phù hợp chế độ ăn chay, thuần chay (vegan)",
+  "Hương vị thơm béo, dễ sử dụng trong nhiều món ăn",
+  "Đạt tiêu chuẩn an toàn vệ sinh thực phẩm",
 ];
 
 const reviews = [
-  { name: "Nguyễn Thị Mai", rating: 5, text: "Da mình cải thiện rõ rệt sau 2 tuần sử dụng. Rất hài lòng!" },
-  { name: "Trần Văn Hùng", rating: 5, text: "Mua cho vợ, vợ rất thích. Sản phẩm chính hãng, giao hàng nhanh." },
-  { name: "Lê Phương Anh", rating: 4, text: "Serum thẩm thấu nhanh, da mềm mịn hơn. Sẽ mua lại!" },
-  { name: "Phạm Đức Minh", rating: 5, text: "Giá hợp lý, chất lượng tuyệt vời. Đã giới thiệu cho bạn bè." },
+  { name: "Nguyễn Thị Mai", rating: 5, text: "Sản phẩm rất thơm ngon, gia đình mình ai cũng thích. Sẽ mua lại!" },
+  { name: "Trần Văn Hùng", rating: 5, text: "Chất lượng tuyệt vời, đóng gói cẩn thận. Giao hàng nhanh." },
+  { name: "Lê Phương Anh", rating: 4, text: "Dùng nấu sữa hạt rất ngon, vị béo tự nhiên. Recommend!" },
+  { name: "Phạm Đức Minh", rating: 5, text: "Giá hợp lý, chất lượng cao. Đã giới thiệu cho bạn bè ăn chay." },
 ];
 
 const Index = () => {
@@ -29,14 +29,14 @@ const Index = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="order-2 md:order-1">
             <span className="inline-block bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full mb-4">
-              ⭐ Bestseller #1
+              🌿 Thực phẩm chay cao cấp
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
-              Serum Dưỡng Da <br />
-              <span className="text-primary">GlowSerum Premium</span>
+              Tinh Chất Hạt Điều <br />
+              <span className="text-primary">Cashew Essence</span>
             </h1>
             <p className="text-muted-foreground text-lg mb-6">
-              Công thức đột phá giúp da sáng mịn, căng bóng chỉ sau 7 ngày sử dụng.
+              100% từ hạt điều tự nhiên – Giàu dinh dưỡng, hoàn hảo cho lối sống lành mạnh và chế độ ăn chay.
             </p>
 
             <div className="flex items-baseline gap-3 mb-6">
@@ -57,7 +57,7 @@ const Index = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <img
               src={productImage}
-              alt="GlowSerum Premium"
+              alt="Cashew Essence – Tinh chất hạt điều"
               className="w-72 md:w-96 rounded-2xl shadow-xl"
             />
           </div>
@@ -68,7 +68,7 @@ const Index = () => {
       <section className="bg-card py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center text-foreground mb-8">
-            Tại sao chọn GlowSerum?
+            Tại sao chọn Cashew Essence?
           </h2>
           <div className="max-w-xl mx-auto space-y-4">
             {benefits.map((b, i) => (
@@ -118,7 +118,7 @@ const Index = () => {
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-primary" />
               <p className="text-sm font-semibold text-foreground">Cam kết chính hãng</p>
-              <p className="text-xs text-muted-foreground">100% authentic</p>
+              <p className="text-xs text-muted-foreground">100% tự nhiên</p>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t py-6">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>© 2026 GlowSerum. Mọi quyền được bảo lưu.</p>
+          <p>© 2026 Cashew Essence. Mọi quyền được bảo lưu.</p>
           <Link to="/chinh-sach" className="underline hover:text-foreground mt-1 inline-block">
             Chính sách & Liên hệ
           </Link>

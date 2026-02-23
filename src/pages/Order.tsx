@@ -29,7 +29,7 @@ const Order = () => {
           {/* Product summary */}
           <div className="bg-card border rounded-xl p-4 flex items-center justify-between">
             <div>
-              <p className="font-semibold text-foreground">GlowSerum Premium</p>
+              <p className="font-semibold text-foreground">Cashew Essence</p>
               <p className="text-sm text-muted-foreground">x1</p>
             </div>
             <p className="text-lg font-bold text-primary">

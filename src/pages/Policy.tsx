@@ -53,8 +53,8 @@ const Policy = () => {
           <div className="bg-card border rounded-xl p-5 space-y-3 text-sm">
             <p className="text-foreground"><strong>Hotline:</strong> 0901 234 567 (8h-21h hàng ngày)</p>
             <p className="text-foreground"><strong>Zalo:</strong> 0901 234 567</p>
-            <p className="text-foreground"><strong>Facebook:</strong> fb.com/glowserum</p>
-            <p className="text-foreground"><strong>Email:</strong> hotro@glowserum.vn</p>
+            <p className="text-foreground"><strong>Facebook:</strong> fb.com/cashewessence</p>
+            <p className="text-foreground"><strong>Email:</strong> hotro@cashewessence.vn</p>
           </div>
         </section>
       </div>

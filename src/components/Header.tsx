@@ -6,7 +6,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="text-xl font-bold text-foreground tracking-tight">
-          GlowSerum
+          Cashew Essence
         </Link>
         <nav className="flex items-center gap-4 text-sm">
           <Link to="/chinh-sach" className="text-muted-foreground hover:text-foreground transition-colors">
