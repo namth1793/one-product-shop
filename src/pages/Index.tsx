@@ -43,6 +43,7 @@ const reviews = [
 
 const Index = () => {
   const [selected] = useState(variations[0]);
+  const [qty, setQty] = useState(1);
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,15 +67,44 @@ const Index = () => {
               Lựa chọn lý tưởng cho người ăn chay, người theo lối sống lành mạnh và những ai yêu thích thực phẩm có nguồn gốc thực vật.
             </p>
 
-            <div className="flex items-baseline gap-3 mb-6">
+            <div className="flex items-baseline gap-3 mb-5">
               <span className="text-3xl font-bold text-primary">
-                {selected.price.toLocaleString("vi-VN")}₫
+                {(selected.price * qty).toLocaleString("vi-VN")}₫
               </span>
-              <span className="text-sm text-muted-foreground">{selected.label}</span>
+              {qty > 1 && (
+                <span className="text-sm text-muted-foreground">
+                  ({selected.price.toLocaleString("vi-VN")}₫ × {qty})
+                </span>
+              )}
+            </div>
+
+            {/* Số lượng */}
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-sm font-medium text-foreground">Số lượng:</span>
+              <div className="flex items-center border rounded-xl overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  className="w-10 h-10 flex items-center justify-center text-lg font-bold text-foreground hover:bg-muted transition-colors disabled:opacity-40"
+                  disabled={qty <= 1}
+                >
+                  −
+                </button>
+                <span className="w-10 text-center font-semibold text-foreground select-none">
+                  {qty}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => Math.min(99, q + 1))}
+                  className="w-10 h-10 flex items-center justify-center text-lg font-bold text-foreground hover:bg-muted transition-colors"
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             <Link
-              to={`/dat-hang?size=${selected.id}`}
+              to={`/dat-hang?size=${selected.id}&qty=${qty}`}
               className="inline-block w-full md:w-auto text-center bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-bold hover:opacity-90 transition-opacity shadow-lg"
             >
               🛒 Mua ngay – Giao hàng miễn phí
@@ -227,6 +257,32 @@ const Index = () => {
                 <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Người tiêu dùng ưu tiên sản phẩm có nguồn gốc thực vật</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SDGs Banner */}
+      <section className="bg-card py-10 border-y">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            {/* Text */}
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">
+                Cam kết bền vững
+              </p>
+              <h3 className="text-lg font-bold text-foreground mb-1">
+                Cashew Essence & 17 Mục tiêu Phát triển Bền vững (SDGs)
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Tìm hiểu cách chúng tôi đóng góp vào các mục tiêu của Liên Hợp Quốc thông qua từng sản phẩm.
+              </p>
+            </div>
+            <Link
+              to="/muc-tieu-phat-trien-ben-vung"
+              className="shrink-0 border border-primary text-primary px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/5 transition-colors"
+            >
+              Xem chi tiết →
+            </Link>
           </div>
         </div>
       </section>

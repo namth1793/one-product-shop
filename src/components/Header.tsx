@@ -1,7 +1,3 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { LogIn, LogOut, ShoppingBag, User, Package } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
 import AuthDialog from "@/components/AuthDialog";
 import OrderHistoryDialog from "@/components/OrderHistoryDialog";
 import {
@@ -12,6 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/contexts/AuthContext";
+import { LogIn, LogOut, Package, User } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { isLoggedIn, user, logout } = useAuth();
@@ -25,10 +25,16 @@ const Header = () => {
           <Link to="/" className="text-xl font-bold text-foreground tracking-tight">
             Cashew Essence
           </Link>
-          <nav className="flex items-center gap-3 text-sm">
+          <nav className="flex items-center gap-5 text-sm">
+            <Link
+              to="/muc-tieu-phat-trien-ben-vung"
+              className="text-muted-foreground hover:text-foreground transition-colors hidden sm:inline"
+            >
+              Mục Tiêu
+            </Link>
             <Link
               to="/chinh-sach"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors hidden sm:inline"
             >
               Chính sách
             </Link>
@@ -66,14 +72,6 @@ const Header = () => {
                 Đăng nhập
               </button>
             )}
-
-            <Link
-              to="/dat-hang"
-              className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              Mua ngay
-            </Link>
           </nav>
         </div>
       </header>

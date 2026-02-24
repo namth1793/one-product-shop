@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Order from "./pages/Order";
 import Confirmation from "./pages/Confirmation";
 import Policy from "./pages/Policy";
+import Sdgs from "./pages/Sdgs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/dat-hang" element={<Order />} />
             <Route path="/xac-nhan" element={<Confirmation />} />
             <Route path="/chinh-sach" element={<Policy />} />
+            <Route path="/muc-tieu-phat-trien-ben-vung" element={<Sdgs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -9,6 +9,7 @@ interface Order {
   id: number;
   size: string;
   price: number;
+  quantity: number;
   customer_name: string;
   phone: string;
   address: string;
@@ -109,13 +110,18 @@ const OrderHistoryDialog = ({ open, onOpenChange }: OrderHistoryDialogProps) => 
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-foreground">Cashew Essence {order.size}</p>
+                  <p className="font-semibold text-foreground">
+                    Cashew Essence {order.size} × {order.quantity || 1}
+                  </p>
                   <p className="text-xs text-muted-foreground">{order.address}</p>
                 </div>
-                <p className="text-primary font-bold">{order.price.toLocaleString("vi-VN")}₫</p>
+                <p className="text-primary font-bold">
+                  {(order.price * (order.quantity || 1)).toLocaleString("vi-VN")}₫
+                </p>
               </div>
               <div className="text-xs text-muted-foreground">
-                {order.payment === "cod" ? "Thanh toán khi nhận hàng" : "Chuyển khoản ngân hàng"}
+                {order.payment === "cod" ? "Thanh toán khi nhận hàng" :
+                 order.payment === "momo" ? "Ví MoMo" : "Chuyển khoản ngân hàng"}
               </div>
             </div>
           ))}
