@@ -1,4 +1,4 @@
-import productImage from "@/assets/product-hero.jpg";
+import productImage from "@/assets/product-hero.png";
 import FloatingContact from "@/components/FloatingContact";
 import Header from "@/components/Header";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -7,9 +7,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const variations = [
-  { id: "125g", label: "125g", price: 199000, originalPrice: 299000 },
-  { id: "250g", label: "250g", price: 369000, originalPrice: 549000, popular: true },
-  { id: "500g", label: "500g", price: 699000, originalPrice: 999000 },
+  { id: "125g", label: "125g", price: 75000 },
 ];
 
 const features = [
@@ -44,7 +42,7 @@ const reviews = [
 ];
 
 const Index = () => {
-  const [selected, setSelected] = useState(variations[1]); // default 500g
+  const [selected] = useState(variations[0]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -68,41 +66,11 @@ const Index = () => {
               Lựa chọn lý tưởng cho người ăn chay, người theo lối sống lành mạnh và những ai yêu thích thực phẩm có nguồn gốc thực vật.
             </p>
 
-            {/* Variations */}
-            <div className="mb-6">
-              <p className="text-sm font-medium text-foreground mb-3">Chọn trọng lượng:</p>
-              <div className="flex gap-3">
-                {variations.map((v) => (
-                  <button
-                    key={v.id}
-                    onClick={() => setSelected(v)}
-                    className={`relative px-5 py-3 rounded-xl border-2 text-sm font-semibold transition-all ${
-                      selected.id === v.id
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border bg-card text-foreground hover:border-primary/50"
-                    }`}
-                  >
-                    {v.popular && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                        Phổ biến
-                      </span>
-                    )}
-                    {v.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <div className="flex items-baseline gap-3 mb-6">
               <span className="text-3xl font-bold text-primary">
                 {selected.price.toLocaleString("vi-VN")}₫
               </span>
-              <span className="text-lg text-muted-foreground line-through">
-                {selected.originalPrice.toLocaleString("vi-VN")}₫
-              </span>
-              <span className="bg-destructive text-destructive-foreground text-xs font-bold px-2 py-1 rounded">
-                -{Math.round((1 - selected.price / selected.originalPrice) * 100)}%
-              </span>
+              <span className="text-sm text-muted-foreground">{selected.label}</span>
             </div>
 
             <Link

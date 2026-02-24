@@ -54,7 +54,7 @@ const Policy = () => {
             <p className="text-foreground"><strong>Hotline:</strong> 0393 801 795 (8h-21h hàng ngày)</p>
             <p className="text-foreground"><strong>Zalo:</strong> 0393 801 795</p>
             <p className="text-foreground"><strong>Facebook:</strong> fb.com/cashewessence</p>
-            <p className="text-foreground"><strong>Email:</strong> nguyenkhanhdu.ccmo@gmai.com</p>
+            <p className="text-foreground"><strong>Email:</strong> nguyenkhanhdu.ccmo@gmail.com</p>
           </div>
         </section>
       </div>
