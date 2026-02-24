@@ -1,7 +1,7 @@
-import FloatingContact from "@/components/FloatingContact";
-import Header from "@/components/Header";
-import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import Header from "@/components/Header";
+import FloatingContact from "@/components/FloatingContact";
 
 const Policy = () => {
   return (
@@ -51,10 +51,10 @@ const Policy = () => {
         <section className="mb-8">
           <h2 className="text-lg font-bold text-foreground mb-3">📞 Liên hệ</h2>
           <div className="bg-card border rounded-xl p-5 space-y-3 text-sm">
-            <p className="text-foreground"><strong>Hotline:</strong> 0393 801 795 (8h-21h hàng ngày)</p>
-            <p className="text-foreground"><strong>Zalo:</strong> 0393 801 795</p>
+            <p className="text-foreground"><strong>Hotline:</strong> 0901 234 567 (8h-21h hàng ngày)</p>
+            <p className="text-foreground"><strong>Zalo:</strong> 0901 234 567</p>
             <p className="text-foreground"><strong>Facebook:</strong> fb.com/cashewessence</p>
-            <p className="text-foreground"><strong>Email:</strong> nguyenkhanhdu.ccmo@gmai.com</p>
+            <p className="text-foreground"><strong>Email:</strong> hotro@cashewessence.vn</p>
           </div>
         </section>
       </div>
