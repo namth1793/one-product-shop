@@ -1,28 +1,45 @@
+import productImage from "@/assets/product-hero.jpg";
+import FloatingContact from "@/components/FloatingContact";
+import Header from "@/components/Header";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { CheckCircle, Clock, Leaf, RotateCcw, Shield, Star, Thermometer, Truck, UtensilsCrossed } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Star, Shield, Truck, RotateCcw, CheckCircle } from "lucide-react";
-import productImage from "@/assets/product-hero.jpg";
-import Header from "@/components/Header";
-import FloatingContact from "@/components/FloatingContact";
 
 export const variations = [
-  { id: "250g", label: "250g", price: 199000, originalPrice: 299000 },
-  { id: "500g", label: "500g", price: 369000, originalPrice: 549000, popular: true },
-  { id: "1kg", label: "1kg", price: 699000, originalPrice: 999000 },
+  { id: "125g", label: "125g", price: 199000, originalPrice: 299000 },
+  { id: "250g", label: "250g", price: 369000, originalPrice: 549000, popular: true },
+  { id: "500g", label: "500g", price: 699000, originalPrice: 999000 },
 ];
 
-const benefits = [
-  "100% từ hạt điều tự nhiên, không chất bảo quản",
-  "Giàu protein thực vật, tốt cho sức khỏe tim mạch",
-  "Phù hợp chế độ ăn chay, thuần chay (vegan)",
-  "Hương vị thơm béo, dễ sử dụng trong nhiều món ăn",
-  "Đạt tiêu chuẩn an toàn vệ sinh thực phẩm",
+const features = [
+  "Hương vị béo ngậy tự nhiên từ hạt điều, thơm dịu, dễ ăn",
+  "Giàu protein thực vật và chất béo tốt cho tim mạch",
+  "Cung cấp năng lượng cần thiết cho cơ thể",
+  "Sản phẩm thuần chay, không chứa thành phần động vật",
+  "Khoảng 220–240 Kcal/125g, phù hợp cho chế độ ăn cân bằng",
+];
+const ingredients = "Hạt điều (60%), bơ hạt điều (15%), hành tây (10%), gia vị tự nhiên (muối biển, đường phèn, tiêu). Không chất bảo quản.";
+
+const productInfo = [
+  { label: "Tên sản phẩm", value: "Pate Hạt Điều Chay" },
+  { label: "Thương hiệu", value: "CASHEW ESSENCE" },
+  { label: "Khối lượng tịnh", value: "125g" },
+  { label: "Ngày sản xuất", value: "In trên bao bì" },
+  { label: "Hạn sử dụng", value: "18 tháng kể từ ngày sản xuất" },
+  { label: "Xuất xứ", value: "Việt Nam" },
+];
+const commitments = [
+  "Sản phẩm 100% nguyên liệu thực vật",
+  "Không chứa chất bảo quản",
+  "Đảm bảo an toàn vệ sinh thực phẩm",
+  "Hương vị tự nhiên, tốt cho sức khỏe",
 ];
 
 const reviews = [
   { name: "Nguyễn Thị Mai", rating: 5, text: "Sản phẩm rất thơm ngon, gia đình mình ai cũng thích. Sẽ mua lại!" },
   { name: "Trần Văn Hùng", rating: 5, text: "Chất lượng tuyệt vời, đóng gói cẩn thận. Giao hàng nhanh." },
-  { name: "Lê Phương Anh", rating: 4, text: "Dùng nấu sữa hạt rất ngon, vị béo tự nhiên. Recommend!" },
+  { name: "Lê Phương Anh", rating: 4, text: "Dùng kèm bánh mì rất ngon, vị béo tự nhiên. Recommend!" },
   { name: "Phạm Đức Minh", rating: 5, text: "Giá hợp lý, chất lượng cao. Đã giới thiệu cho bạn bè ăn chay." },
 ];
 
@@ -41,11 +58,14 @@ const Index = () => {
               🌿 Thực phẩm chay cao cấp
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
-              Tinh Chất Hạt Điều <br />
+              Pate Hạt Điều Chay <br />
               <span className="text-primary">Cashew Essence</span>
             </h1>
             <p className="text-muted-foreground text-lg mb-6">
-              100% từ hạt điều tự nhiên – Giàu dinh dưỡng, hoàn hảo cho lối sống lành mạnh và chế độ ăn chay.
+              Pate Hạt Điều Chay từ CASHEW ESSENCE được sản xuất hoàn toàn từ nguyên liệu tự nhiên, đặc biệt là hạt điều Việt Nam tuyển chọn. Không chứa thành phần động vật, không chất bảo quản độc hại.
+            </p>
+            <p className="text-muted-foreground mb-6">
+              Lựa chọn lý tưởng cho người ăn chay, người theo lối sống lành mạnh và những ai yêu thích thực phẩm có nguồn gốc thực vật.
             </p>
 
             {/* Variations */}
@@ -102,19 +122,143 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Đặc điểm sản phẩm */}
       <section className="bg-card py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center text-foreground mb-8">
-            Tại sao chọn Cashew Essence?
+            Đặc điểm Pate Hạt Điều Chay
           </h2>
           <div className="max-w-xl mx-auto space-y-4">
-            {benefits.map((b, i) => (
+            {features.map((f, i) => (
               <div key={i} className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
-                <p className="text-foreground">{b}</p>
+                <p className="text-foreground">{f}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Thông tin chi tiết & Hướng dẫn */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-foreground mb-8">
+            Thông tin chi tiết
+          </h2>
+          {/* Thông tin sản phẩm */}
+          <div className="bg-card border rounded-xl overflow-hidden mb-6">
+            {productInfo.map((item, i) => (
+              <div key={i} className={`flex justify-between px-5 py-3 ${i % 2 === 0 ? "bg-muted/50" : ""}`}>
+                <span className="text-muted-foreground font-medium">{item.label}</span>
+                <span className="text-foreground font-semibold">{item.value}</span>
+              </div>
+            ))}
+          </div>
+          {/* Accordion sections */}
+          <Accordion type="multiple" className="space-y-2">
+            <AccordionItem value="ingredients" className="bg-card border rounded-xl px-5">
+              <AccordionTrigger className="text-foreground font-semibold">
+                <span className="flex items-center gap-2"><Leaf className="w-4 h-4 text-primary" /> Thành phần nguyên liệu</span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">{ingredients}</p>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="usage" className="bg-card border rounded-xl px-5">
+              <AccordionTrigger className="text-foreground font-semibold">
+                <span className="flex items-center gap-2"><UtensilsCrossed className="w-4 h-4 text-primary" /> Hướng dẫn sử dụng</span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Sử dụng trực tiếp sau khi mở nắp.</li>
+                  <li>• Ngon hơn khi làm nóng, hấp hoặc nướng nhẹ.</li>
+                  <li>• Dùng kèm với bánh mì, xôi, bánh bao, hoặc làm salad.</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="storage" className="bg-card border rounded-xl px-5">
+              <AccordionTrigger className="text-foreground font-semibold">
+                <span className="flex items-center gap-2"><Thermometer className="w-4 h-4 text-primary" /> Hướng dẫn bảo quản</span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Bảo quản nơi khô ráo, thoáng mát dưới 30°C, tránh ánh nắng trực tiếp.</li>
+                  <li>• Đậy kín nắp sau khi sử dụng và bảo quản trong ngăn mát tủ lạnh, sử dụng trong 5 ngày.</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+      {/* Cam kết */}
+      <section className="bg-primary/5 py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center text-foreground mb-8">
+            <Shield className="w-6 h-6 inline-block text-primary mr-2 -mt-1" />
+            Cashew Essence cam kết
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            {commitments.map((c, i) => (
+              <div key={i} className="bg-card border rounded-xl p-4 text-center">
+                <CheckCircle className="w-6 h-6 text-success mx-auto mb-2" />
+                <p className="text-sm font-medium text-foreground">{c}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Về Cashew Essence */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-foreground mb-10">
+            Về Cashew Essence
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-card border rounded-xl p-6 text-center">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Leaf className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-bold text-foreground mb-2">Mục tiêu</h3>
+              <p className="text-sm text-muted-foreground">
+                Cung cấp thực phẩm chay giàu dinh dưỡng, an toàn, có nguồn gốc thực vật, góp phần nâng cao sức khỏe cộng đồng.
+              </p>
+            </div>
+            <div className="bg-card border rounded-xl p-6 text-center">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-bold text-foreground mb-2">Giá trị cốt lõi</h3>
+              <p className="text-sm text-muted-foreground">
+                Tự nhiên – Dinh dưỡng – Bền vững – Trách nhiệm xã hội.
+              </p>
+            </div>
+            <div className="bg-card border rounded-xl p-6 text-center">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-bold text-foreground mb-2">Tầm nhìn</h3>
+              <p className="text-sm text-muted-foreground">
+                Trở thành thương hiệu thực phẩm chay từ hạt điều tiên phong tại Việt Nam, từng bước mở rộng ra thị trường khu vực.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-card border rounded-xl p-6">
+              <h3 className="font-bold text-foreground mb-4">🌱 Giá trị mang lại</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" /> Người ăn chay, ăn kiêng, người theo lối sống xanh</li>
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" /> Người tiêu dùng quan tâm đến sức khỏe</li>
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" /> Nông dân trồng điều và lao động địa phương</li>
+              </ul>
+            </div>
+            <div className="bg-card border rounded-xl p-6">
+              <h3 className="font-bold text-foreground mb-4">👥 Đối tượng khách hàng</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Người trẻ từ 18–35 tuổi, sinh viên, nhân viên văn phòng</li>
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Người ăn chay trường hoặc ăn chay linh hoạt</li>
+                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Người tiêu dùng ưu tiên sản phẩm có nguồn gốc thực vật</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
